@@ -3,5 +3,7 @@ import ReactDOM from 'react-dom';
 import App from '../App';
 
 it('shows a comment box', () => {
-  // TODO: Implement the test.
+  const div = document.create('div');
+  ReactDOM.render(<App/>, div);
+  ReactDOM.unmountComponentAtNode(div);
 });
