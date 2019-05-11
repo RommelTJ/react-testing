@@ -19,20 +19,19 @@ it('has a text area and a button', () => {
 
 describe('the text area', () => {
 
-  it('has a text area that users can type in', () => {
+  beforeEach(() => {
     wrapped.find('textarea').simulate('change', {target: {value: 'new comment'}});
     wrapped.update(); // necessary because setState is called asynchronously.
+  });
+
+  it('has a text area that users can type in', () => {
     expect(wrapped.find('textarea').prop('value')).toEqual('new comment');
   });
 
   it('empties textarea after submission', () => {
-    wrapped.find('textarea').simulate('change', {target: {value: 'new comment'}});
-    wrapped.update(); // necessary because setState is called asynchronously.
     wrapped.find('form').simulate('submit');
     wrapped.update(); // necessary because setState is called asynchronously.
     expect(wrapped.find('textarea').prop('value')).toEqual('');
   });
 
 });
-
-
