@@ -22,3 +22,11 @@ it('has a text area that users can type in', () => {
   wrapped.update(); // necessary because setState is called asynchronously.
   expect(wrapped.find('textarea').prop('value')).toEqual('new comment');
 });
+
+it('empties textarea after submission', () => {
+  wrapped.find('textarea').simulate('change', {target: {value: 'new comment'}});
+  wrapped.update(); // necessary because setState is called asynchronously.
+  wrapped.find('form').simulate('submit', {target: {value: 'new comment'}});
+  wrapped.update(); // necessary because setState is called asynchronously.
+  expect(wrapped.find('textarea').prop('value')).toEqual('');
+});
