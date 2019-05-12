@@ -15,5 +15,5 @@ beforeEach(() => {
 });
 
 it('creates one list item per comment', () => {
-  
+  console.log(wrapped.find('li').length);
 });
