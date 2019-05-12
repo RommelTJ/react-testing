@@ -19,5 +19,7 @@ it('creates one list item per comment', () => {
 });
 
 it('shows the text for each comment', () => {
-  expect(wrapped.text()).toEqual('Comment 1Comment 2');
+  // Using a CheerioWrapper.
+  expect(wrapped.render().text()).toContain('Comment 1');
+  expect(wrapped.render().text()).toContain('Comment 2');
 });
