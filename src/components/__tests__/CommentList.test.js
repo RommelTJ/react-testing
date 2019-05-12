@@ -17,3 +17,7 @@ beforeEach(() => {
 it('creates one list item per comment', () => {
   expect(wrapped.find('li').length).toEqual(2);
 });
+
+it('shows the text for each comment', () => {
+  expect(wrapped.text()).toEqual('Comment 1Comment 2');
+});
