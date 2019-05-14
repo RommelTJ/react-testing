@@ -5,6 +5,7 @@ import App from 'components/App';
 
 it('can fetch a list of comments and display them', () => {
   // Attempt to render the entire app.
+  const wrapped = mount(<Root><App/></Root>);
 
   // Find the fetchComments button and click it.
 
