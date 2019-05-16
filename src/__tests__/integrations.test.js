@@ -19,13 +19,21 @@ afterEach(() => {
   moxios.uninstall();
 });
 
-it('can fetch a list of comments and display them', () => {
+it('can fetch a list of comments and display them', (done) => {
   // Attempt to render the entire app.
   const wrapped = mount(<Root><App/></Root>);
 
   // Find the fetchComments button and click it.
   wrapped.find('.fetch-comments').simulate('click');
 
-  // Expect to find a list of comments.
-  expect(wrapped.find('li').length).toEqual(2);
+  // Fake an API delay of 500ms
+  setTimeout(() => {
+    // Update
+    wrapped.update();
+    // Expect to find a list of comments.
+    expect(wrapped.find('li').length).toEqual(2);
+    // Invoke done callback
+    done();
+  }, 500);
+
 });
