@@ -26,8 +26,8 @@ it('can fetch a list of comments and display them', (done) => {
   // Find the fetchComments button and click it.
   wrapped.find('.fetch-comments').simulate('click');
 
-  // Fake an API delay of 500ms
-  setTimeout(() => {
+  // Fake an API delay
+  moxios.wait(() => {
     // Update
     wrapped.update();
     // Expect to find a list of comments.
@@ -36,6 +36,6 @@ it('can fetch a list of comments and display them', (done) => {
     done();
     // Cleanup
     wrapped.unmount();
-  }, 500);
+  });
 
 });
