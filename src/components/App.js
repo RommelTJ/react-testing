@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
 import { Route, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import CommentBox from './CommentBox';
 import CommentList from './CommentList';
 
 class App extends Component {
 
   renderLogInButton() {
-    return <div>Button</div>;
+    if (this.props.auth) {
+      return <button>Sign Out</button>;
+    }
+    return <button>Sign In</button>
   }
 
   renderHeader() {
@@ -34,4 +38,8 @@ class App extends Component {
 
 }
 
-export default App;
+function mapStateToProps(state) {
+  return { auth: state.auth };
+}
+
+export default connect(mapStateToProps)(App);
