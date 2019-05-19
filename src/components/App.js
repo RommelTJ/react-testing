@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CommentBox from './CommentBox';
 import CommentList from './CommentList';
+import * as actions from "../actions";
 
 class App extends Component {
 
@@ -43,4 +44,4 @@ function mapStateToProps(state) {
   return { auth: state.auth };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, actions)(App);
