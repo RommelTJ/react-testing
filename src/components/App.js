@@ -9,9 +9,9 @@ class App extends Component {
 
   renderLogInButton() {
     if (this.props.auth) {
-      return <button>Sign Out</button>;
+      return <button onClick={() => this.props.changeAuth(false)}>Sign Out</button>;
     }
-    return <button>Sign In</button>
+    return <button onClick={() => this.props.changeAuth(true)}>Sign In</button>
   }
 
   renderHeader() {
