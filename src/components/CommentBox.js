@@ -6,6 +6,20 @@ class CommentBox extends Component {
 
   state = { comment: '' };
 
+  componentDidMount() {
+    this.shouldNavigateAway();
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    this.shouldNavigateAway();
+  }
+
+  shouldNavigateAway() {
+    if (!this.props.auth) {
+      console.log("I need to leave!");
+    }
+  }
+
   handleChange = (e) => {
     this.setState({comment: e.target.value});
   };
