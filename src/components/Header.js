@@ -12,15 +12,14 @@ class Header extends Component {
 
   render() {
     return (
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/post">Post a Comment</Link>
-        </li>
-        <li>{ this.renderLogInButton() }</li>
-      </ul>
+      <div>
+        <Link to="/">Home</Link>
+        <Link to="/post">Post a Comment</Link>
+        <Link to="/signup">Sign Up</Link>
+        <Link to="/signin">Sign In</Link>
+        <Link to="/signout">Sign Out</Link>
+        <Link to="/feature">Feature</Link>
+      </div>
     );
   }
 
