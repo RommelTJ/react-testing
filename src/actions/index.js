@@ -1,10 +1,9 @@
 import axios from 'axios';
 import {SAVE_COMMENT, FETCH_COMMENTS, CHANGE_AUTH, AUTH_USER} from "./types";
 
-export const signUp = ({email, password}) => (dispatch) => {
-  // TODO: Implement SignUp action creator.
+export const signUp = (formProps) => (dispatch) => {
+  axios.post('http://localhost:3090/signup', formProps);
 };
-
 
 export function saveComment(comment) {
   return { type: SAVE_COMMENT, payload: comment};
