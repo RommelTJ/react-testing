@@ -1,10 +1,10 @@
 import axios from 'axios';
 import {SAVE_COMMENT, FETCH_COMMENTS, CHANGE_AUTH, AUTH_USER} from "./types";
 
-export function signUp({email, password}) {
-  // TODO: Implement me.
-  return { type: AUTH_USER, payload: email };
-}
+export const signUp = ({email, password}) => (dispatch) => {
+  // TODO: Implement SignUp action creator.
+};
+
 
 export function saveComment(comment) {
   return { type: SAVE_COMMENT, payload: comment};
