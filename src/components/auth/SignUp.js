@@ -33,6 +33,9 @@ class SignUp extends Component {
             autoComplete="none"
           />
         </fieldset>
+        <div>
+          {this.props.errorMessage}
+        </div>
         <button>Sign Up!</button>
       </form>
     );
@@ -40,7 +43,11 @@ class SignUp extends Component {
 
 }
 
+function mapStateToProps(state) {
+  return { errorMessage: state.auth.errorMessage };
+}
+
 export default compose(
-  connect(null, actions),
+  connect(mapStateToProps, actions),
   reduxForm({ form: 'signup' })
 )(SignUp);
