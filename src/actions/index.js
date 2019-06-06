@@ -1,8 +1,10 @@
 import axios from 'axios';
 import {SAVE_COMMENT, FETCH_COMMENTS, CHANGE_AUTH, AUTH_USER} from "./types";
 
-export const signUp = (formProps) => (dispatch) => {
-  axios.post('http://localhost:3090/signup', formProps);
+export const signUp = (formProps) => async dispatch => {
+  const response = await axios.post('http://localhost:3090/signup', formProps);
+
+  dispatch({ type: AUTH_USER, payload: response.data.token });
 };
 
 export function saveComment(comment) {
