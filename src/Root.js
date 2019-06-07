@@ -5,7 +5,7 @@ import async from "./middlewares/async";
 import reducers from './reducers';
 import reduxThunk from 'redux-thunk';
 
-export default ({children, initialState = {}}) => {
+export default ({children, initialState = { auth: { authenticated: localStorage.getItem('token') } } }) => {
   const store = createStore(reducers, initialState, applyMiddleware(async, reduxThunk));
   return (
     <Provider store={store}>
