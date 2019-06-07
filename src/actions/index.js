@@ -13,7 +13,7 @@ export const signUp = (formProps, callback) => async dispatch => {
 };
 
 export const signOut = () => {
-  localStorage.clearItem('token');
+  localStorage.removeItem('token');
   return { type: AUTH_USER, payload: '' };
 };
 
