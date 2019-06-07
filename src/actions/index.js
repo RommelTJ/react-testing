@@ -12,6 +12,11 @@ export const signUp = (formProps, callback) => async dispatch => {
   }
 };
 
+export const signOut = () => {
+  localStorage.clearItem('token');
+  return { type: AUTH_USER, payload: '' };
+};
+
 export function saveComment(comment) {
   return { type: SAVE_COMMENT, payload: comment};
 }
